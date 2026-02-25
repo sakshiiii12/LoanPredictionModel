@@ -1,8 +1,8 @@
-import pandas as pd 
+import pandas as pd
 import numpy as np
 
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer 
@@ -12,7 +12,7 @@ from sklearn.metrics import accuracy_score
 # Load Data
 df = pd.read_csv('data/loan_data.csv')
 
-# Split Features and Target 
+# Split Features and Target FIRST
 X = df.drop('not.fully.paid', axis=1)
 y = df['not.fully.paid']
 
@@ -23,7 +23,7 @@ cat_feature = X.select_dtypes(include=['object']).columns
 # Preprocessing
 num_pipeline = Pipeline([
     ('imputer', SimpleImputer(strategy='median')),
-    ('scaler', MinMaxScaler())
+    ('scaler', StandardScaler())
 ])
 
 cat_pipeline = Pipeline([
@@ -53,8 +53,8 @@ model.fit(X_train, y_train)
 # Evaluate
 pred = model.predict(X_test)
 
-print("Accuracy Score:",accuracy_score(y_test, pred))
+print("Accuracy Score:", accuracy_score(y_test, pred))
 
 # Save Model 
 import joblib
-joblib.dump(model, 'model/loan_model.pkl')
+joblib.dump(model, 'model/loanData_model.pkl')

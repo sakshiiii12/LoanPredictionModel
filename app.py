@@ -10,7 +10,7 @@ st.set_page_config(
 )
 
 # ---------------- LOAD MODEL ----------------
-model = joblib.load('model/loan_model.pkl')
+model = joblib.load('model/loanData_model.pkl')
 
 # ---------------- HEADER ----------------
 st.title("🏦 Loan Default Prediction")
