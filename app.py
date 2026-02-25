@@ -71,4 +71,4 @@ if st.button("Predict"):
     if prediction[0] == 0:
         st.success("✅ Loan Likely to be Fully Paid")
     else:
-        st.error("⚠ Loan May Not Be Fully Paid")
+        st.error("⚠ Loan May Not Be Fully Paid") 
