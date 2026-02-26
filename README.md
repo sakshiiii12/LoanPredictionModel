@@ -59,7 +59,5 @@ Target Variable:
 7. Deployment using Streamlit  
 
 ---
-
-## 💻 How to Run the App
-
-### 1️⃣ Clone the repository
+## Live Demo
+(https://loanpredictionmodel-gxx482q4wmmpbfyd9etmam.streamlit.app/)
